@@ -1,0 +1,277 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, roboto, sans-serif;
+}
+
+body {
+  background-color: #ffffff;
+  width: 100%;
+  height: 100vh;
+}
+header {
+  margin: 3vh 7%;
+}
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.main-container {
+  margin: 50px 7% 50px 7%;
+  display: flex;
+  gap: 40px;
+}
+.checkout-container {
+  width: 48%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: #daf1d7;
+}
+.checkout-items {
+  padding: 30px 50px;
+}
+.order-summary h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.order-summary {
+  text-align: center;
+  padding-top: 25px;
+}
+.checkout-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+.checkout-item .checkout-Image {
+  flex-basis: 15%;
+}
+.checkout-Image img {
+  width: 100%;
+}
+
+.checkout-item-details h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: black;
+  margin-bottom: 15px;
+}
+.checkout-item-details p {
+  font-size: 0.94rem;
+  font-weight: 400;
+  color: black;
+}
+.item-Total {
+  font-size: 1rem;
+  font-weight: 500;
+  color: black;
+  margin-left: auto;
+}
+.checkout-item-details {
+  display: flex;
+
+  flex-basis: 100%;
+}
+
+.checkout-total h2 {
+  font-size: 1.125rem;
+  padding-right: 50px;
+  font-weight: 600;
+  color: rgb(255, 255, 255);
+  margin: 15px 0;
+  float: right;
+}
+.checkout-total {
+  background-color: #41a535;
+}
+
+.payment-container {
+  flex-basis: 48%;
+  padding: 25px 50px 30px 50px;
+  background-color: #daf1d7;
+  height: fit-content;
+}
+.payment-container h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+
+  color: rgb(0, 0, 0);
+}
+.shipping-input-box {
+  margin: 20px 0;
+  position: relative;
+}
+.shipping-input-box input {
+  width: 100%;
+  padding: 12px 12px 12px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  background-color: #ffffff;
+  border: none;
+}
+.shipping-input-box label {
+  display: flex;
+  color: #000000;
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 7px;
+}
+.shipping-small-part {
+  display: flex;
+  gap: 30px;
+}
+.shipping-small-part .shipping-input-box {
+  width: 100%;
+  gap: 30px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.visa-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.visa-icons .image1 {
+  width: 60px;
+  height: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.visa-icons .image2 {
+  width: 40px;
+  height: 40px;
+}
+.placeOrder {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #f83513;
+  text-decoration: none;
+}
+.placeOrder a {
+  text-decoration: none;
+}
+.checkout-complete-btn {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: white;
+}
+.placeOrder:hover {
+  background: rgb(255, 17, 0);
+}
+
+@media only screen and (max-width: 850px) {
+  .main-container {
+    margin: 50px 7% 50px 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .checkout-container {
+    width: 100%;
+  }
+  .checkout-items {
+    padding: 30px 30px;
+  }
+  .checkout-item-details h3 {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: black;
+    margin-bottom: 0px;
+  }
+  .checkout-item-details p {
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: black;
+  }
+  .item-Total {
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: black;
+    margin-left: auto;
+  }
+  .checkout-item .checkout-Image {
+    flex-basis: 20%;
+  }
+  .checkout-total h2 {
+    font-size: 1rem;
+    padding-right: 30px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    margin: 15px 0;
+    float: right;
+  }
+  .payment-container {
+    flex-basis: 48%;
+    padding: 25px 30px 30px 30px;
+    background-color: #daf1d7;
+  }
+  .shipping-input-box input {
+    width: 100%;
+    padding: 12px 12px 12px 12px;
+    font-size: 0.88rem;
+    font-weight: 400;
+    background-color: #ffffff;
+    border: none;
+  }
+  .shipping-input-box label {
+    display: flex;
+    color: #000000;
+    font-size: 0.94rem;
+    font-weight: 400;
+    padding-bottom: 7px;
+  }
+  .shipping-small-part {
+    display: flex;
+    gap: 20px;
+  }
+  .shipping-small-part .shipping-input-box {
+    width: 100%;
+    gap: 20px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .placeOrder h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+  }
+}
+@media only screen and (max-width: 768px) {
+  header h1 {
+    font-size: 1.25rem;
+  }
+  .main-container {
+    margin: 30px 7% 30px 7%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  .order-summary h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+  .payment-container h2 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    text-align: center;
+
+    color: rgb(0, 0, 0);
+  }
+  .placeOrder h2 {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: white;
+  }
+  .checkout-total h2 {
+    font-size: 0.94rem;
+  }
+}

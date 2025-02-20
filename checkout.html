@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="checkout.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico.jpg" />
+  </head>
+  <body>
+   
+    <header>
+        <h1>Checkout</h1>
+      </header>
+      <section class="main-container">
+        <section class="checkout-container">
+          <div class="order-summary"><h2>Order Summary</h2></div>
+          <div class="checkout-items"></div>
+          <div class="checkout-total"></div>
+        </section>
+        <section class="payment-container">
+          <h2>Payment</h2>
+          <form action="#" class="shipping-form">
+            <div class="shipping-input-box">
+              <label for="Email-adress">Email</label>
+              <input type="text" placeholder="sara@gmail.com" id="Email-adress" />
+            </div>
+            <div class="shipping-small-part">
+              <div class="shipping-input-box">
+                <label for="First-Name">First Name</label>
+                <input
+                  type="text"
+                  placeholder="Sara"
+                  id="First-Name"
+                  autocomplete="Sara"
+                />
+              </div>
+              <div class="shipping-input-box">
+                <label for="last-Name">Last Name</label>
+                <input type="text" placeholder="Jahan" id="last-Name" />
+              </div>
+            </div>
+            <div class="shipping-input-box">
+              <label for="shipping-adress">Address</label>
+              <input
+                type="text"
+                placeholder="kongsbakken 39"
+                id="shipping-adress"
+              />
+            </div>
+            <div class="shipping-input-box">
+              <label for="Post-Number">Post Number</label>
+              <input type="text" placeholder="3612" id="Post-Number" />
+            </div>
+            <div class="shipping-small-part">
+              <div class="shipping-input-box">
+                <label for="City">City</label>
+                <input type="text" placeholder="Kongsberg" id="City" />
+              </div>
+              <div class="shipping-input-box">
+                <label for="Phone-Number">Phone Number</label>
+                <input type="text" placeholder="+47 ********" id="Phone-Number" />
+              </div>
+            </div>
+            <div class="shipping-input-box">
+              <label for="Name-on-Card">Name on Card</label>
+              <input type="text" placeholder="sara Jahan" id="Name-on-Card" />
+            </div>
+            <div class="shipping-input-box">
+              <label for="Card-Number">Card Number</label>
+              <input
+                type="text"
+                placeholder="**** **** **** 5249"
+                id="Card-Number"
+              />
+            </div>
+            <div class="shipping-small-part">
+              <div class="shipping-input-box">
+                <label for="MM/YY">MM/YY</label>
+                <input type="text" placeholder="02/12" id="MM/YY" />
+              </div>
+              <div class="shipping-input-box">
+                <label for="cvc">CVC</label>
+                <input type="text" placeholder="***" id="cvc" />
+              </div>
+            </div>
+  
+            <div class="visa-icons">
+              <img src="images/visacard.svg" alt="visacard" class="image1" />
+              <img src="images/mastercard.svg" alt="mastercard" class="image2" />
+            </div>
+          </form>
+          <div class="placeOrder">
+            <a href="complete-order.html"><div class="checkout-complete-btn">Place Order</div>
+  
+          </div>
+        </section>
+      </section>
+      
+
+    <script src="checkout.js"></script>
+  </body>
+</html>

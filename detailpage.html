@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="detailpage.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico.jpg" />
+  </head>
+  <body>
+    <nav>
+      <div class="logo">
+        <img src="images/GameHub_Logo.png" alt="GameHub-Logo" />
+      </div>
+      <div class="nav-links">
+        <ul>
+          <li><a href="index.html">Games</a></li>
+          <li>Deals</li>
+          <li>Blog</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+        </ul>
+      </div>
+      <div class="icons">
+        <div class="cart-icon shopping-cart">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span class="cart-qty">0</span>
+        </div>
+        <div class="menu-icon">
+          <i class="fa-solid fa-bars open-menu"></i>
+          <i class="fa-solid fa-xmark close-menu"></i>
+        </div>
+      </div>
+    </nav>
+    <section class="detailPage"></section>
+    <div class="cart-overlay"></div>
+
+    <div class="cart">
+      <div class="cart-header">
+        <i class="fa-solid fa-arrow-right cart-close"></i>
+        <h2>Your Cart</h2>
+      </div>
+      <div class="cart-body"></div>
+      <div class="cart-footer">
+        <div class="cartTotalAmount">
+          <strong>Total</strong>
+          <span class="cart-total">0</span>
+        </div>
+        <div class="cart-buttons">
+          <div class="cart-clear">Clear Cart</div>
+          <div class="checkout"><a href="checkout.html">Checkout</a></div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-section">
+      <section class="footer-inner-section">
+        <section class="footer-section-1">
+          <a href="index.html">Games</a>
+          <p>Deals</p>
+          <p>Blogs</p>
+          <p>About Us</p>
+          <p>Contact us</p>
+        </section>
+        <section class="footer-section-2">
+          <p>FAQS</p>
+          <p>Terms of use</p>
+          <p>Privacy Policy</p>
+          <p>News and Press</p>
+          <p>Redeem a Gift Card</p>
+        </section>
+        <section class="footer-section-3">
+          <div class="social-media">
+            <h3>Follow us</h3>
+            <div class="social-div">
+              <a href="https://www.facebook.com/" aria-label="link to facebook"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/"
+                aria-label="link to instagram"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a href="https://www.youtube.com/" aria-label="link to youtube"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+              <a href="https://www.twitter.com/" aria-label="link to twitter"
+                ><i class="fa-brands fa-twitter"></i
+              ></a>
+            </div>
+            <div class="game-app">
+              <img src="images/android.svg" class="google-store" />
+              <img src="images/apple.svg" class="apple-store" />
+            </div>
+          </div>
+        </section>
+      </section>
+    </footer>
+
+    <script src="detailpage.js"></script>
+  </body>
+</html>
