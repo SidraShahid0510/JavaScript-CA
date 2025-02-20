@@ -61,12 +61,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function displaySingleProduct() {
     const productId = new URLSearchParams(window.location.search).get("id");
-
+    const loader = document.querySelector(".loader");
+    loader.style.display = "block";
+    productContainer.innerHTML = "";
     try {
       const response = await fetch(
         `https://v2.api.noroff.dev/gamehub/${productId}`
       );
       const product = await response.json();
+      setTimeout(() => {
+        displayProduct(product);
+        loader.style.display = "none";
+      }, 2000);
 
       displayProduct(product);
     } catch (error) {

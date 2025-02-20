@@ -19,8 +19,17 @@ header h1 {
   color: black;
   text-align: center;
 }
+.home-link {
+  margin: 30px 7% 20px 7%;
+}
+.home-link a {
+  font-size: 1rem;
+  font-weight: 500;
+  color: green;
+  cursor: pointer;
+}
 .main-container {
-  margin: 50px 7% 50px 7%;
+  margin: 10px 7% 50px 7%;
   display: flex;
   gap: 40px;
 }
@@ -167,13 +176,39 @@ header h1 {
 .placeOrder:hover {
   background: rgb(255, 17, 0);
 }
+.loader {
+  display: none;
+  width: 50px;
+  height: 50px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
 
 @media only screen and (max-width: 850px) {
   .main-container {
-    margin: 50px 7% 50px 7%;
+    margin: 10px 7% 50px 7%;
     display: flex;
     flex-direction: column;
     gap: 40px;
+  }
+  .home-link a {
+    font-size: 0.94rem;
   }
   .checkout-container {
     width: 100%;
@@ -250,7 +285,7 @@ header h1 {
     font-size: 1.25rem;
   }
   .main-container {
-    margin: 30px 7% 30px 7%;
+    margin: 10px 7% 30px 7%;
     display: flex;
     flex-direction: column;
     gap: 40px;

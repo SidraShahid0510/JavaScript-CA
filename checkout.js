@@ -5,6 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const checkoutItemsContainer = document.querySelector(".checkout-items");
   const checkoutTotalContainer = document.querySelector(".checkout-total");
+  const placeOrderBtn = document.querySelector(".checkout-complete-btn");
+  const loader = document.querySelector(".loader");
   let totalPrice = 0;
 
   // If there are items in the cart, display them
@@ -33,6 +35,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Show a message if the cart is empty
     checkoutItemsContainer.innerHTML = `<p>Your cart is empty.</p>`;
   }
+  placeOrderBtn?.addEventListener("click", () => {
+    loader.style.display = "block";
+
+    setTimeout(() => {
+      localStorage.removeItem("cart");
+      localStorage.setItem("cartCleared", Date.now());
+      window.location.href = "completeorder.html";
+    }, 4000);
+  });
   document
     .querySelector(".checkout-complete-btn")
     ?.addEventListener("click", () => {
