@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cartFooter: document.querySelector(".cart-footer"),
     clearCartBtn: document.querySelector(".cart-clear"),
   };
-
+  // Function to show the cart and overlay
   const showCart = () => {
     selectors.cart.classList.add("show");
     selectors.cartOverlay.classList.add("show");
@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelector(".nav-links");
 
   closeMenu.style.display = "none";
-
+  // Open mobile menu
   openMenu.addEventListener("click", () => {
     navLinks.classList.add("active");
     openMenu.style.display = "none";
     closeMenu.style.display = "block";
   });
-
+  // Close mobile menu
   closeMenu.addEventListener("click", () => {
     navLinks.classList.remove("active");
     openMenu.style.display = "block";
@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Failed to fetch product data:", error);
     }
   }
-
+  // Render product details on the page
   function displayProduct(product) {
     const inCart = cart.find((x) => x.id === product.data.id);
     const text = inCart ? "Added in cart" : "Add to Cart";
@@ -115,7 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (productContainer) {
     displaySingleProduct();
   }
-
+  // Handle Add to Cart button click
   productContainer.addEventListener("click", (e) => {
     if (e.target.classList.contains("cart-btn")) {
       const productId = e.target.getAttribute("data-id");
@@ -138,9 +138,11 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  // Save cart to localStorage
   function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
+  // Update cart UI elements: quantity, items, total
   function updateCartUI() {
     selectors.cartQty.textContent = cart.reduce(
       (sum, item) => sum + item.quantity,
@@ -205,12 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
+  // Remove item from cart
   function removeItemFromCart(productId) {
     cart = cart.filter((item) => item.id !== productId);
     localStorage.setItem("cart", JSON.stringify(cart));
     updateCartUI();
   }
+  // Clear the entire cart
   if (selectors.clearCartBtn) {
     selectors.clearCartBtn.addEventListener("click", () => {
       clearCart();
@@ -234,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveCartToLocalStorage();
     updateCartTotal();
   };
-
+  // Update total cart value
   function updateCartTotal() {
     const total = cart.reduce(
       (sum, item) => sum + item.price * item.quantity,
@@ -249,7 +252,7 @@ document.addEventListener("DOMContentLoaded", () => {
       window.location.href = "checkout.html";
     });
   }
-
+  // Change item quantity
   function changeQuantity(productId, change) {
     const item = cart.find((x) => x.id === productId);
     if (item) {

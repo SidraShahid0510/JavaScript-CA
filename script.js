@@ -14,17 +14,17 @@ document.addEventListener("DOMContentLoaded", () => {
     cartFooter: document.querySelector(".cart-footer"),
     clearCartBtn: document.querySelector(".cart-clear"),
   };
-
+  // Show cart overlay
   const showCart = () => {
     selectors.cart.classList.add("show");
     selectors.cartOverlay.classList.add("show");
   };
-
+  // Hide cart overlay
   const hideCart = () => {
     selectors.cart.classList.remove("show");
     selectors.cartOverlay.classList.remove("show");
   };
-
+  // Event listeners to show or hide cart
   if (selectors.shoppingCart) {
     selectors.shoppingCart.addEventListener("click", (e) => {
       e.preventDefault();
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (selectors.cartClose) {
     selectors.cartClose.addEventListener("click", hideCart);
   }
-
+  // Updates cart UI: quantity, items, and total
   function updateCartUI() {
     selectors.cartQty.textContent = cart.reduce(
       (sum, item) => sum + item.quantity,
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderCartItems();
     updateCartTotal();
   }
-
+  // Render cart items in the cart body section
   function renderCartItems() {
     selectors.cartBody.innerHTML = "";
     if (cart.length === 0) {
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     attachCartEventListeners();
   }
-
+  // Set up event listeners for cart item buttons
   function attachCartEventListeners() {
     document.querySelectorAll(".fa-plus").forEach((button) => {
       button.addEventListener("click", (e) => {
@@ -108,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
-
+  // Change quantity of a cart item
   function changeQuantity(productId, change) {
     const item = cart.find((x) => x.id === productId);
     if (item) {
@@ -120,12 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
+  // Remove item from cart
   function removeItemFromCart(productId) {
     cart = cart.filter((item) => item.id !== productId);
     updateCartUI();
   }
-
+  // Clear all items from cart
   if (selectors.clearCartBtn) {
     selectors.clearCartBtn.addEventListener("click", () => {
       clearCart();
@@ -138,6 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
     updateCartUI();
     saveCartToLocalStorage();
   }
+  // Save current cart state to localStorage
   function saveCartToLocalStorage() {
     localStorage.setItem("cart", JSON.stringify(cart));
   }
@@ -187,11 +188,14 @@ const openFilter = filterArrows.querySelector(".open-filter");
 const closeFilter = filterArrows.querySelector(".close-filter");
 closeFilter.style.display = "none";
 
+// Show category filter
 openFilter.addEventListener("click", () => {
   categoryListDiv.classList.add("active");
   openFilter.style.display = "none";
   closeFilter.style.display = "block";
 });
+
+// Hide category filter
 closeFilter.addEventListener("click", () => {
   categoryListDiv.classList.remove("active");
   openFilter.style.display = "block";
@@ -199,6 +203,7 @@ closeFilter.addEventListener("click", () => {
 });
 
 let allGen = [];
+// Fetch and display products
 let displayProduct = async (allCheckGen = []) => {
   productDiv.innerHTML = "";
   let product = await fetch("https://v2.api.noroff.dev/gamehub");

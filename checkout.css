@@ -160,18 +160,17 @@ header h1 {
   text-align: center;
   padding: 15px 0;
   background-color: #f83513;
-  text-decoration: none;
 }
-.placeOrder a {
-  text-decoration: none;
-}
+
 .checkout-complete-btn {
   font-size: 1.125rem;
   font-weight: 600;
   color: white;
   font-size: 1.125rem;
   font-weight: 600;
-  color: white;
+  border: none;
+  text-decoration: none;
+  background: none;
 }
 .placeOrder:hover {
   background: rgb(255, 17, 0);
@@ -304,7 +303,6 @@ header h1 {
   .placeOrder h2 {
     font-size: 0.94rem;
     font-weight: 600;
-    color: white;
   }
   .checkout-total h2 {
     font-size: 0.94rem;

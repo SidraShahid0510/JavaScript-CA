@@ -1,54 +1,79 @@
-// checkout.js
-
 document.addEventListener("DOMContentLoaded", () => {
-  // Retrieve the cart data from localStorage
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
   const checkoutItemsContainer = document.querySelector(".checkout-items");
   const checkoutTotalContainer = document.querySelector(".checkout-total");
-  const placeOrderBtn = document.querySelector(".checkout-complete-btn");
   const loader = document.querySelector(".loader");
+  const checkoutForm = document.getElementById("checkout-form");
+
   let totalPrice = 0;
 
-  // If there are items in the cart, display them
+  // Render cart items
   if (cart.length > 0) {
     cart.forEach((item) => {
       const itemTotal = item.price * item.quantity;
       totalPrice += itemTotal;
-      checkoutItemsContainer.innerHTML += `         
-      <div class="checkout-item">
-            <div class="checkout-Image"><img src="${item.image}" alt="${
+      checkoutItemsContainer.innerHTML += `
+        <div class="checkout-item">
+          <div class="checkout-Image"><img src="${item.image}" alt="${
         item.title
       }" /></div>
-            <div class="checkout-item-details">
-              <div><h3>${item.title}</h3>
+          <div class="checkout-item-details">
+            <div>
+              <h3>${item.title}</h3>
               <p>Price: $${item.price.toFixed(2)}</p>
-              <p>Quantity: ${item.quantity}</p></div>
-              <span class="item-Total">Total: $${itemTotal.toFixed(2)}</span>
+              <p>Quantity: ${item.quantity}</p>
             </div>
+            <span class="item-Total">Total: $${itemTotal.toFixed(2)}</span>
           </div>
-        `;
+        </div>
+      `;
     });
     checkoutTotalContainer.innerHTML = `<h2>Total Amount: $${totalPrice.toFixed(
       2
     )}</h2>`;
   } else {
-    // Show a message if the cart is empty
     checkoutItemsContainer.innerHTML = `<p>Your cart is empty.</p>`;
   }
-  placeOrderBtn?.addEventListener("click", () => {
-    loader.style.display = "block";
 
+  // Form validation and order processing
+  checkoutForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    // Get form input values
+    const email = document.getElementById("Email-adress").value.trim();
+    const firstName = document.getElementById("First-Name").value.trim();
+    const lastName = document.getElementById("last-Name").value.trim();
+    const address = document.getElementById("shipping-adress").value.trim();
+    const postNumber = document.getElementById("Post-Number").value.trim();
+    const city = document.getElementById("City").value.trim();
+    const phone = document.getElementById("Phone-Number").value.trim();
+    // Basic checks
+    if (
+      !email ||
+      !firstName ||
+      !lastName ||
+      !address ||
+      !postNumber ||
+      !city ||
+      !phone
+    ) {
+      alert("Please fill in all the fields.");
+      return;
+    }
+
+    // Email validation
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+
+    // Show loader and process order
+    loader.style.display = "block";
     setTimeout(() => {
       localStorage.removeItem("cart");
       localStorage.setItem("cartCleared", Date.now());
-      window.location.href = "completeorder.html";
+      window.location.href = "complete-order.html";
     }, 4000);
   });
-  document
-    .querySelector(".checkout-complete-btn")
-    ?.addEventListener("click", () => {
-      localStorage.removeItem("cart");
-      localStorage.setItem("cartCleared", Date.now());
-      window.location.href = "completeorder.html";
-    });
 });
