@@ -35,11 +35,28 @@ document.addEventListener("DOMContentLoaded", () => {
     checkoutItemsContainer.innerHTML = `<p>Your cart is empty.</p>`;
   }
 
+  // Auto-format card number: 1234 5678 9012 3456
+  const cardNumberInput = document.getElementById("Card-Number");
+  cardNumberInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
+    value = value.replace(/(.{4})/g, "$1 ").trim();
+    e.target.value = value;
+  });
+
+  // Auto-format expiry: MM/YY
+  const expiryInput = document.getElementById("MM/YY");
+  expiryInput.addEventListener("input", (e) => {
+    let value = e.target.value.replace(/\D/g, "");
+    if (value.length > 2) {
+      value = value.substring(0, 2) + "/" + value.substring(2, 4);
+    }
+    e.target.value = value;
+  });
+
   // Form validation and order processing
   checkoutForm?.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Get form input values
     const email = document.getElementById("Email-adress").value.trim();
     const firstName = document.getElementById("First-Name").value.trim();
     const lastName = document.getElementById("last-Name").value.trim();
@@ -47,7 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const postNumber = document.getElementById("Post-Number").value.trim();
     const city = document.getElementById("City").value.trim();
     const phone = document.getElementById("Phone-Number").value.trim();
-    // Basic checks
+    const cardName = document.getElementById("Name-on-Card").value.trim();
+    let cardNumber = document.getElementById("Card-Number").value.trim();
+    const expiry = document.getElementById("MM/YY").value.trim();
+    const cvc = document.getElementById("cvc").value.trim();
+
+    // Basic validation
     if (
       !email ||
       !firstName ||
@@ -55,7 +77,11 @@ document.addEventListener("DOMContentLoaded", () => {
       !address ||
       !postNumber ||
       !city ||
-      !phone
+      !phone ||
+      !cardName ||
+      !cardNumber ||
+      !expiry ||
+      !cvc
     ) {
       alert("Please fill in all the fields.");
       return;
@@ -68,7 +94,26 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Show loader and process order
+    // Card number validation
+    cardNumber = cardNumber.replace(/\s+/g, "");
+    if (!/^\d{12,19}$/.test(cardNumber)) {
+      alert("Please enter a valid card number (12–19 digits).");
+      return;
+    }
+
+    // Expiry validation (MM/YY)
+    if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+      alert("Expiry must be in MM/YY format.");
+      return;
+    }
+
+    // CVC validation
+    if (!/^\d{3,4}$/.test(cvc)) {
+      alert("Please enter a valid CVC.");
+      return;
+    }
+
+    // Show loader and simulate order completion
     loader.style.display = "block";
     setTimeout(() => {
       localStorage.removeItem("cart");
