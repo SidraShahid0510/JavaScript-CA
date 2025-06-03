@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  if (cart.length === 0) {
-    updateCartUI();
-  }
+
   const selectors = {
     shoppingCart: document.querySelector(".shopping-cart"),
     cartQty: document.querySelector(".cart-qty"),
@@ -14,6 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     cartFooter: document.querySelector(".cart-footer"),
     clearCartBtn: document.querySelector(".cart-clear"),
   };
+  if (cart.length === 0) {
+    updateCartUI();
+  }
   // Show cart overlay
   const showCart = () => {
     selectors.cart.classList.add("show");
